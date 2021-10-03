@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MYToken from "./artifacts/contracts/MYToken.sol/MYToken.json";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
+import Faucet from "./components/Faucet.jsx";
+import Tokensend from "./components/Tokensend.jsx";
 
 function App() {
+  const Token = MYToken;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col sm={7}>
+            {/* <div>Our Faucet</div> */}
+            <Faucet tokenContract={Token} />
+          </Col>
+          <Col sm={5}>
+            <Tokensend tokenContract={Token} />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
