@@ -1,15 +1,46 @@
-# Basic Sample Hardhat Project
-
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+# JPYC Faucet-testnet PJ (Basic Sample Hardhat Project)
+## How to start
+### Run it on testnet "Georli"
+``` shell
+npm install
+npm run start
 ```
+### Run it locally
+
+パッケージをインストールして、ローカルブロックチェーンを立てる
+``` shell
+npm install
+npx hardhat node
+```
+デプロイする
+``` shell
+npm hardhat run scripts/deploy.js --network localhost
+```
+デプロイ後、tokenaddressの2箇所を更新する
+``` javascript
+// Faucet.jsx and Tokensend.jsx
+const tokenAddress = "your-token-address";
+```
+
+
+### テストネットへ新たにデプロイする場合、
+パッケージをインストールして、テストネットへデプロイ
+``` shell
+npm install
+npx hardhat node
+```
+``` shell
+npm hardhat run scripts/deploy.js --network goerli
+```
+デプロイ後、tokenaddressの2箇所を更新する
+``` javascript
+// Faucet.jsx and Tokensend.jsx
+const tokenAddress = "your-token-address";
+```
+
+## 参考サイト
+更に不明な点が有ればこちらをご参照下さい！
+https://dev.to/richardmelko/ethereum-dapp-crash-course-make-an-erc20-token-faucet-frontend-2m43
+
+
+
